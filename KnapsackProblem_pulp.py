@@ -3,7 +3,7 @@ import pulp as op
 #Developer: @KeivanTafakkori, 18 December 2021  
 
 def model(J,w,W,p,dispmodel="y",solve="y", dispresult="y"):
-    m = op.LpProblem("KnapSackProblem", op.LpMaximize)
+    m = op.LpProblem("KnapsackProblem", op.LpMaximize)
     x = {j: op.LpVariable(f"x{j}", 0,1, op.LpBinary) for j in J}
     objs = {0: sum(p[j]*x[j] for j in J)} 
     cons = {0: {0: (sum(w[j]*x[j] for j in J) <= W, "eq1")}}
