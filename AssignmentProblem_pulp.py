@@ -21,7 +21,7 @@ def model(I,J,c,dispmodel="y",solve="y", dispresult="y"):
                 print("Objective --- \n", op.value(m.objective))
                 print("Decision --- \n", [(variables.name,variables.varValue) for variables in m.variables() if variables.varValue!=0])
                 print("Slack --- \n", [(name,constraint.slack) for name, constraint in m.constraints.items() if constraint.slack!=0])    
-            return m
+    return m
 
 I = range(3) #Set of agents
 J = range(3) #Set of tasks
