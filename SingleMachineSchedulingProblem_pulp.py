@@ -4,7 +4,7 @@ import itertools as it
 #Developer: @KeivanTafakkori, 5 March 2022
 
 def model(I,J,p,s,dispmodel="y",solve="y", dispresult="y"):
-    m = op.LpProblem("AssignmentProblem", op.LpMinimize)
+    m = op.LpProblem("SingleMachineSchedulingProblem", op.LpMinimize)
     x = {(i,j): op.LpVariable(f"job{i+1}position{j+1}", 0,1, op.LpBinary) for i,j in it.product(I, J)}
     c = {j: op.LpVariable(f"c{j}", 0, None, op.LpContinuous) for j in J}
     cc = op.LpVariable("makespan", 0, None, op.LpContinuous)
